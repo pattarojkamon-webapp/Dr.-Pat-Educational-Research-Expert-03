@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/FRwPCtyb/Dr-Pattaroj-V-2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Pat: Educational Research Specialist</title>
+    <meta name="description" content="Dr. Pat: An AI-powered assistant specializing in educational administration research.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Sarabun', 'Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: 'var(--color-primary)',
+              secondary: 'var(--color-secondary)',
+              background: 'var(--color-background)',
+              surface: 'var(--color-surface)',
+              text: 'var(--color-text)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --color-primary: #4f46e5; /* Indigo 600 */
+        --color-secondary: #e0e7ff; /* Indigo 100 */
+        --color-background: #f1f5f9; /* Slate 100 */
+        --color-surface: #ffffff;
+        --color-text: #1e293b; /* Slate 800 */
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; 
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate3d(0, 20px, 0);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+      
+      @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 1.5s infinite;
+      }
+
+      /* Table Styles */
+      .table-container {
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+      }
+      .table-container table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .table-container th, .table-container td {
+        padding: 14px 18px;
+        border-bottom: 1px solid #e2e8f0;
+        text-align: left;
+        line-height: 1.6;
+      }
+      .table-container th {
+        background-color: #f8fafc;
+        font-weight: 600;
+        color: #334155;
+      }
+      .table-container td {
+        color: #475569;
+      }
+      .table-container tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .table-container tbody tr:hover {
+        background-color: #f8fafc;
+      }
+      
+      .print-only {
+        display: none;
+      }
+
+      @media print {
+        body {
+          background-color: white !important;
+          margin: 0;
+          padding: 0;
+        }
+        .no-print { display: none !important; }
+        .print-only { display: block !important; }
+        #root { display: block !important; overflow: visible !important; height: auto !important; }
+        main { height: auto !important; overflow: visible !important; }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-700">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
