@@ -13,7 +13,7 @@ const TopicIcon = () => (
 
 export const TopicSuggestions: React.FC<TopicSuggestionsProps> = ({ topics, onSelectTopic }) => {
   return (
-    <div className="max-w-2xl animate-fadeInUp">
+    <div className="w-full animate-fadeInUp">
       <p className="text-md font-semibold text-slate-700 mb-4">หรือเริ่มต้นสำรวจหัวข้อเหล่านี้:</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {topics.map((topic, index) => (

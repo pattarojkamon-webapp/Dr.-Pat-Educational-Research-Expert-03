@@ -14,7 +14,7 @@ const QuestionIcon = () => (
 
 export const SuggestedQuestions: React.FC<SuggestedQuestionsProps> = ({ questions, onSelectQuestion }) => {
   return (
-    <div className="max-w-2xl animate-fadeInUp">
+    <div className="w-full animate-fadeInUp">
       <p className="text-md font-semibold text-slate-700 mb-4">คำถามที่น่าสนใจต่อไป:</p>
       <div className="grid grid-cols-1 gap-3">
         {questions.map((question, index) => (

@@ -217,7 +217,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   return (
     <div className={`flex items-start gap-3 sm:gap-4 animate-fadeInUp group ${isUser ? 'justify-end' : ''}`}>
       {!isUser && avatar}
-      <div className={`max-w-[90%] sm:max-w-2xl rounded-2xl transition-all duration-300 relative shadow-sm hover:shadow-md ${isUser 
+      <div className={`max-w-[90%] sm:max-w-[85%] rounded-2xl transition-all duration-300 relative shadow-sm hover:shadow-md ${isUser 
           ? 'bg-blue-100 border border-blue-200 p-3 sm:p-5 rounded-tr-none text-slate-800' 
           : 'bg-white border border-slate-100 px-3 pt-3 pb-8 sm:px-6 sm:pt-5 sm:pb-8 rounded-tl-none'}`
       }>
@@ -234,7 +234,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
                     {isCopied ? (
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                     ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                     )}
                 </button>
             </div>
