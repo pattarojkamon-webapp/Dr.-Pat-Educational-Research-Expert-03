@@ -57,6 +57,7 @@ const parseMarkdown = (text: string): React.ReactNode => {
             }
             const linkRegex = /\[(.*?)\]\((.*?)\)/g;
             const boldRegex = /\*\*(.*?)\*\*/g;
+            const italicRegex = /\*(.*?)\*/g;
 
             return part.split(linkRegex).reduce((arr, linkPart, j) => {
                 if (j % 3 === 1) {
@@ -67,11 +68,17 @@ const parseMarkdown = (text: string): React.ReactNode => {
                         </a>
                     );
                 } else if (j % 3 === 0) {
-                    const boldParts = linkPart.split(boldRegex).map((boldPart, k) => {
+                    const boldParts = linkPart.split(boldRegex).flatMap((boldPart, k) => {
                         if (k % 2 === 1) {
-                            return <strong key={`${i}-${j}-${k}-bold`} className="font-bold text-slate-800">{boldPart}</strong>;
+                            return [<strong key={`${i}-${j}-${k}-bold`} className="font-bold text-slate-800">{boldPart}</strong>];
                         }
-                        return boldPart;
+                        // Handle italics within text that is not bold
+                        return boldPart.split(italicRegex).map((italicPart, l) => {
+                            if (l % 2 === 1) {
+                                return <em key={`${i}-${j}-${k}-${l}-italic`} className="italic font-serif">{italicPart}</em>;
+                            }
+                            return italicPart;
+                        });
                     });
                     arr.push(<React.Fragment key={`${i}-${j}-frag`}>{boldParts}</React.Fragment>);
                 }

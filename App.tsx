@@ -310,19 +310,27 @@ const App: React.FC = () => {
     setStagedFiles([]);
   };
 
-  const handleSelectGuideTopic = (title: string, content: string) => {
-    const newChat: Conversation = {
-      id: Date.now().toString() + Math.random().toString(),
-      title: title,
-      createdAt: Date.now(),
-      messages: [
-        getInitialMessage(language),
+  const handleSelectGuideTopic = (title: string, fullContent: string) => {
+    let currentId = activeChatId;
+    
+    // If no chat is active, create a new one first
+    if (!currentId) {
+        currentId = createNewChat();
+    }
+    
+    // Parse the guide content for suggestions
+    const { content, suggestions } = parseResponse(fullContent);
+
+    // Add as a continuous message in the existing chat
+    updateConversationMessages(currentId, prev => [
+        ...prev,
+        { role: 'user', text: `ดูหัวข้อ: ${title}` },
         { role: 'model', text: content }
-      ],
-    };
-    setConversations(prev => [newChat, ...prev]);
-    setActiveChatId(newChat.id);
-    setSuggestedQuestions([]);
+    ]);
+
+    setSuggestedQuestions(suggestions);
+    setError(null);
+
     if (window.innerWidth <= 1024) {
       setIsHistoryPanelOpen(false);
     }
